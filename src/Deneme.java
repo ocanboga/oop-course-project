@@ -21,19 +21,19 @@ public class Deneme {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws FileNotFoundException, IOException {
-    
         
-    try(BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream("girdi.txt"),StandardCharsets.UTF_8))){
-    String satir;
-  	while((satir=br.readLine())!=null){
-    	String[] split=satir.split(",");
-      	//girdi txt dosyasını utf-8 formatıyla açmaya çalışıyoruz eğer açabilirsek açtıktan sonra her satır için işlem yapıyoruz
-        //her satır için işlem yaparken de satırdaki elementleri virgüllerindne ayırıp bir arraya atıyoruz
-        //bu durumda bizim standart yapımız şu şekilde gözükecektir
-        //ARRAY INDEX -> 0 - D,M | 1 - AD SOYAD | 2 - MAAS | 3 - BAGLI OLDUGU KISI
-        
-        System.out.println("okuma başarılı...");
-        //işlemleri burada yap!!!!
+        //Calisan[] calisanlar = new Calisan[];
+        try(BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream("girdi.txt"),StandardCharsets.UTF_8))){
+        String satir;
+            while((satir=br.readLine())!=null){
+            String[] split=satir.split(",");
+            //girdi txt dosyasını utf-8 formatıyla açmaya çalışıyoruz eğer açabilirsek açtıktan sonra her satır için işlem yapıyoruz
+            //her satır için işlem yaparken de satırdaki elementleri virgüllerindne ayırıp bir arraya atıyoruz
+            //bu durumda bizim standart yapımız şu şekilde gözükecektir
+            //ARRAY INDEX -> 0 - D,M | 1 - AD SOYAD | 2 - MAAS | 3 - BAGLI OLDUGU KISI
+
+            System.out.println(split[1]);
+            //işlemleri burada yap!!!!
         }
     }
     

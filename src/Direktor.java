@@ -24,11 +24,21 @@ public class Direktor implements Calisan { //Calisan interface'ni alan direktor 
     {
         System.out.println(adSoyad+" "+maas+" ");
     }
-    
+   
     @Override
     public int maasaBak()
     {
         return maas;
+    }
+    
+        public void calisanEkle(Calisan calisan)
+    {
+        calisanListesi.add(calisan);
+    }
+    @Override
+    public void calisanSil(Calisan calisan)
+    {
+        calisanListesi.remove(calisan);
     }
     
 }

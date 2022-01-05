@@ -14,7 +14,7 @@ import java.util.List;
 
 
 public class Composite implements Calisan{
-        private List<Calisan> calisanListesi = new ArrayList<Calisan>();
+    private List<Calisan> calisanListesi = new CalisanList(calisanlar);
        
     @Override
     public void calisanDetaylariniGoster() 
@@ -29,7 +29,7 @@ public class Composite implements Calisan{
     {
         calisanListesi.add(calisan);
     }
-       
+    @Override
     public void calisanSil(Calisan calisan)
     {
         calisanListesi.remove(calisan);
