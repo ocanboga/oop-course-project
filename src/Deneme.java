@@ -32,13 +32,14 @@ public class Deneme {
             //her satır için işlem yaparken de satırdaki elementleri virgüllerindne ayırıp bir arraya atıyoruz
             //bu durumda bizim standart yapımız şu şekilde gözükecektir
             //ARRAY INDEX -> 0 - D,M | 1 - AD SOYAD | 2 - MAAS | 3 - BAGLI OLDUGU KISI
+                System.out.println(bol[0]);
             if(bol[0] == "D"){
-                
+                Memur yeniMemur = new Memur();
             }
             else if(bol[0] == "M"){
-                
+                Direktor yeniDirektor = new Direktor();
             }
-            else if(""=="a"){
+            else{
                 System.out.println("Hata dosya işlenemedi...");
                 break;
             }

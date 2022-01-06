@@ -13,22 +13,25 @@ public class Direktor implements Calisan { //Calisan interface'ni alan direktor 
     private String adSoyad; //direktor tipindeki calisanın gerekli bilgilerini almak icin atamaları yaptık
     private int maas; 
     private String pozisyon;
+    private String baglanti;
     public static Calisan[] direktorArr = new Calisan[0];
     private static int direktorSayac = 0;
     
-    public Direktor(String isim, int maas, String pozisyon){ //constructor
+    public Direktor(String isim, int maas, String pozisyon, String baglanti){ //constructor
         this.adSoyad = isim;
         this.maas = maas;
         this.pozisyon = pozisyon;
+        this.baglanti = baglanti;
         this.direktorSayac +=1;
-        Direktor tempCalisan = new Direktor(isim,maas,pozisyon,1);
+        Direktor tempCalisan = new Direktor(isim,maas,pozisyon,baglanti,1);
         arrayeEkle(tempCalisan);
     }
     
-    public Direktor(String isim, int maas, String pozisyon,int temp){ //constructor temp obje oluşturmak için
+    public Direktor(String isim, int maas, String pozisyon,String baglanti,int temp){ //constructor temp obje oluşturmak için
         this.adSoyad = isim;
         this.maas = maas;
         this.pozisyon = pozisyon;
+        this.baglanti = baglanti;
     }
     
     public Direktor(){
@@ -64,6 +67,11 @@ public class Direktor implements Calisan { //Calisan interface'ni alan direktor 
         return pozisyon;
     }
     
+    @Override
+    public String baglantiBak(){
+        return baglanti;
+    
+    }
     public Calisan[] direktorleriAl(){
         return direktorArr;
     }

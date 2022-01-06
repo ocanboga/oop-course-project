@@ -12,4 +12,5 @@ public interface Calisan {
     public int maasaBak();
     public String ismeBak();
     public String pozisyonBak();
+    public String baglantiBak();
 }

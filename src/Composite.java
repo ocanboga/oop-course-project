@@ -10,8 +10,9 @@
 public class Composite implements Calisan {
     private Memur tempMemur = new Memur();
     private Direktor tempDirektor = new Direktor();
-    private List<Calisan> calisanListesi = new CalisanList(arrayBirlestir(tempMemur.memurSayisiniAl(),tempDirektor.direktorSayisiniAl()
-            ,tempMemur.memurlariAl(),tempDirektor.direktorleriAl()) );
+    private Calisan[] birlesikArray = arrayBirlestir(tempMemur.memurSayisiniAl(),tempDirektor.direktorSayisiniAl()
+            ,tempMemur.memurlariAl(),tempDirektor.direktorleriAl());
+    private List<Calisan> calisanListesi = new CalisanList(birlesikArray);
     
     @Override
     public void calisanDetaylariniGoster() {
@@ -19,8 +20,21 @@ public class Composite implements Calisan {
         Iterator<Calisan> iterator = calisanListesi.iterator(); 
         
           while(iterator.hasNext())  {  
-            Calisan calisan = iterator.next();  
-            calisan.calisanDetaylariniGoster();  
+            int toplamMaliyet = 0;
+            Calisan calisan = iterator.next();
+            if(calisan.pozisyonBak() == "D"){
+                toplamMaliyet += calisan.maasaBak();
+                for(int i = 0; i<birlesikArray.length;i++){
+                    if(birlesikArray[i].baglantiBak() == calisan.ismeBak()){
+                       toplamMaliyet += birlesikArray[i].maasaBak();
+                       birlesikArray[i].calisanDetaylariniGoster();  
+                    }
+                }
+                System.out.println("EKİBİN TOPLAM MALİYETİ = "+toplamMaliyet);
+            }
+            else if(calisan.pozisyonBak() == "M"){
+                calisan.calisanDetaylariniGoster();
+            }
         }  
     }
 
@@ -38,6 +52,11 @@ public class Composite implements Calisan {
     public String pozisyonBak() {
         throw new UnsupportedOperationException("Bu sınıfla bu fonksiyon kullanılamaz."); 
     }
+    @Override
+    public String baglantiBak() {
+        throw new UnsupportedOperationException("Bu sınıfla bu fonksiyon kullanılamaz."); 
+    }
+    
     
     private Calisan[] arrayBirlestir(int memurSayisi, int direktorSayisi, Calisan[] memurArrayi, Calisan[] direktorArrayi){
         Calisan[] birlesikArray = new Calisan[memurSayisi + direktorSayisi];  //iki arrayin toplamı büyüklükte yeni bir array oluşturduk

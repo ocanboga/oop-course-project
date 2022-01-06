@@ -11,22 +11,25 @@ public class Memur implements Calisan { //Calisan interface'ni alan direktor tip
     private String adSoyad; //direktor tipindeki calisanın gerekli bilgilerini almak icin atamaları yaptık
     private int maas; 
     private String pozisyon;
+    private String baglanti;
     public static Calisan[] memurArr = new Calisan[0];
     private static int memurSayac = 0;
     
-    public Memur(String isim, int maas, String pozisyon){ //constructor
+    public Memur(String isim, int maas, String pozisyon,String baglanti){ //constructor
         this.adSoyad = isim;
         this.maas = maas;
         this.pozisyon = pozisyon;
+        this.baglanti = baglanti;
         this.memurSayac +=1;
-        Memur tempCalisan = new Memur(isim,maas,pozisyon,1);
+        Memur tempCalisan = new Memur(isim,maas,pozisyon,baglanti,1);
         arrayeEkle(tempCalisan);
     }
     
-    public Memur(String isim, int maas, String pozisyon,int temp){ //constructor temp obje oluşturmak için
+    public Memur(String isim, int maas, String pozisyon,String baglanti,int temp){ //constructor temp obje oluşturmak için
         this.adSoyad = isim;
         this.maas = maas;
         this.pozisyon = pozisyon;
+        this.baglanti = baglanti;
     }
     
     public Memur(){
@@ -37,8 +40,9 @@ public class Memur implements Calisan { //Calisan interface'ni alan direktor tip
     public void calisanDetaylariniGoster() //cikti icin print
     {
         System.out.println("**************************");    
-        System.out.println("Name ="+ismeBak());  
-        System.out.println("Salary ="+maasaBak());  
+        System.out.println("İsim = "+ismeBak());  
+        System.out.println("Maaş = "+maasaBak());
+        System.out.println("Pozisyon = "+baglantiBak());
         System.out.println("**************************");  
     }
    
@@ -62,9 +66,15 @@ public class Memur implements Calisan { //Calisan interface'ni alan direktor tip
         return pozisyon;
     }
     
+    @Override
+    public String baglantiBak(){
+        return baglanti;
+    }
+    
     public Calisan[] memurlariAl(){
         return memurArr;
     }
+    
     
     private void arrayeEkle(Calisan calisan){
         this.memurArr = arrayBoyutuArttır(this.memurArr);
