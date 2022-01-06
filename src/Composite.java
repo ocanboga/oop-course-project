@@ -7,39 +7,43 @@
  *
  * @author 90545
  */
-
-
-import java.util.ArrayList;
-import java.util.List;
-
-
-public class Composite implements Calisan{
-    private List<Calisan> calisanListesi = new CalisanList(calisanlar);
-       
+public class Composite implements Calisan {
+    private Memur tempMemur = new Memur();
+    private Direktor tempDirektor = new Direktor();
+    private List<Calisan> calisanListesi = new CalisanList(arrayBirlestir(tempMemur.memurSayisiniAl(),tempDirektor.direktorSayisiniAl()
+            ,tempMemur.memurlariAl(),tempDirektor.direktorleriAl()) );
+    
     @Override
-    public void calisanDetaylariniGoster() 
-    {
-        for(Calisan calisan:calisanListesi)
-        {
-            calisan.calisanDetaylariniGoster();
-        }
+    public void calisanDetaylariniGoster() {
+        
+        Iterator<Calisan> iterator = calisanListesi.iterator(); 
+        
+          while(iterator.hasNext())  {  
+            Calisan calisan = iterator.next();  
+            calisan.calisanDetaylariniGoster();  
+        }  
     }
-       
-    public void calisanEkle(Calisan calisan)
-    {
-        calisanListesi.add(calisan);
-    }
+
     @Override
-    public void calisanSil(Calisan calisan)
-    {
-        calisanListesi.remove(calisan);
+    public int maasaBak() {
+        throw new UnsupportedOperationException("Bu sınıfla bu fonksiyon kullanılamaz."); 
     }
+
     @Override
-    public int maasaBak(){
-        for(Calisan calisan:calisanListesi)
-        {
-            
-        }
-        return -1;
+    public String ismeBak() {
+        throw new UnsupportedOperationException("Bu sınıfla bu fonksiyon kullanılamaz."); 
     }
+
+    @Override
+    public String pozisyonBak() {
+        throw new UnsupportedOperationException("Bu sınıfla bu fonksiyon kullanılamaz."); 
+    }
+    
+    private Calisan[] arrayBirlestir(int memurSayisi, int direktorSayisi, Calisan[] memurArrayi, Calisan[] direktorArrayi){
+        Calisan[] birlesikArray = new Calisan[memurSayisi + direktorSayisi];  //iki arrayin toplamı büyüklükte yeni bir array oluşturduk
+        System.arraycopy(memurArrayi, 0, birlesikArray, 0, memurSayisi);  
+        System.arraycopy(direktorArrayi, 0, birlesikArray, memurSayisi, direktorSayisi);  
+        return birlesikArray;
+    }
+    
 }

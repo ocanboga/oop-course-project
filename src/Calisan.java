@@ -10,6 +10,6 @@
 public interface Calisan {
     public void calisanDetaylariniGoster();
     public int maasaBak();
-    public void calisanEkle(Calisan calisan);
-    public void calisanSil(Calisan calisan);
+    public String ismeBak();
+    public String pozisyonBak();
 }

@@ -7,26 +7,80 @@
  *
  * @author 05190000072_05190000764
  */
-public class Memur implements Calisan{
+public class Memur implements Calisan { //Calisan interface'ni alan direktor tipinde bir calisan olusturduk
     private String adSoyad; //direktor tipindeki calisanın gerekli bilgilerini almak icin atamaları yaptık
     private int maas; 
     private String pozisyon;
+    public static Calisan[] memurArr = new Calisan[0];
+    private static int memurSayac = 0;
     
-    public Memur(String adSoyad, int maas, String pozisyon){ //constructor
-        this.adSoyad = adSoyad;
+    public Memur(String isim, int maas, String pozisyon){ //constructor
+        this.adSoyad = isim;
         this.maas = maas;
         this.pozisyon = pozisyon;
+        this.memurSayac +=1;
+        Memur tempCalisan = new Memur(isim,maas,pozisyon,1);
+        arrayeEkle(tempCalisan);
+    }
+    
+    public Memur(String isim, int maas, String pozisyon,int temp){ //constructor temp obje oluşturmak için
+        this.adSoyad = isim;
+        this.maas = maas;
+        this.pozisyon = pozisyon;
+    }
+    
+    public Memur(){
         
     }
     
     @Override
     public void calisanDetaylariniGoster() //cikti icin print
     {
-        System.out.println(adSoyad+" "+maas+" ");
+        System.out.println("**************************");    
+        System.out.println("Name ="+ismeBak());  
+        System.out.println("Salary ="+maasaBak());  
+        System.out.println("**************************");  
     }
-    
+   
+    @Override
     public int maasaBak()
     {
         return maas;
+    }
+    
+    public void maasAyarla(int yeniMaas){
+        this.maas = yeniMaas;
+    }
+    
+    @Override
+    public String ismeBak(){
+        return adSoyad;
+    }
+    
+    @Override
+    public String pozisyonBak(){
+        return pozisyon;
+    }
+    
+    public Calisan[] memurlariAl(){
+        return memurArr;
+    }
+    
+    private void arrayeEkle(Calisan calisan){
+        this.memurArr = arrayBoyutuArttır(this.memurArr);
+        this.memurArr[memurSayac] = calisan;
+    }
+    
+    public int memurSayisiniAl(){
+        return memurSayac;
+    }
+    
+    private static Calisan[] arrayBoyutuArttır(Calisan[] array){
+        Calisan[] yeniArray = new Calisan[array.length + 1];//ekeleyeğimiz her element için arrayin büyüklüğünü 1 arttırdık
+        for(int i = 0; i < array.length; i++)
+        {
+            yeniArray[i] = array[i];//eski elemanları yeni arraye kopyaladık
+        }
+        return yeniArray;
     }
 }
