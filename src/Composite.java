@@ -28,21 +28,36 @@ public class Composite implements Calisan {
           while(iterator.hasNext())  { 
             int toplamMaliyet = 0;
             Calisan calisan = iterator.currentItem();
+            
             if(aranacakCalisan.equals(calisan.ismeBak())){
+                
                 if(calisan.pozisyonBak().equals("D")){
                     toplamMaliyet += calisan.maasaBak();
+                    System.out.println("");
                     calisan.calisanDetaylariniGoster();
+                    
                     for(int i = 0; i<birlesikArray.length;i++){
                         if(calisan.ismeBak().contains(birlesikArray[i].baglantiBak())){
-                           toplamMaliyet += birlesikArray[i].maasaBak();
-                           birlesikArray[i].calisanDetaylariniGoster();  
+                            toplamMaliyet += birlesikArray[i].maasaBak();
+                            System.out.println("");
+                            birlesikArray[i].calisanDetaylariniGoster();  
+                            for(int j = 0; j<birlesikArray.length;j++){
+                                if(birlesikArray[i].ismeBak().contains(birlesikArray[j].baglantiBak())){
+                                   toplamMaliyet += birlesikArray[j].maasaBak();
+                                   System.out.println("");
+                                   birlesikArray[j].calisanDetaylariniGoster();  
+                                }
+                            
+                            }                                                        
                         }
                     }
+                    System.out.println("");
+                    System.out.println("**********************");
                     System.out.println("EKİBİN TOPLAM MALİYETİ = "+toplamMaliyet);
+                    System.out.println("**********************");
                 }
                 else if(calisan.pozisyonBak().equals("M")){
-                    System.out.println("İsim ="+calisan.ismeBak());  
-                    System.out.println("Maaş ="+calisan.maasaBak()); 
+                    calisan.calisanDetaylariniGoster();
                 }
             }
             calisan = iterator.next();

@@ -38,11 +38,9 @@ public class Memur implements Calisan { //Calisan interface'ni alan direktor tip
     @Override
     public void calisanDetaylariniGoster() //cikti icin print
     {
-        System.out.println(" ");    
         System.out.println("İsim = "+ismeBak());  
         System.out.println("Maaş = "+maasaBak());
-        System.out.println("Pozisyon = "+baglantiBak());
-        System.out.println(" ");  
+        System.out.println("Bağlı olduğu kişi = "+baglantiBak());
     }
    
     @Override

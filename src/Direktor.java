@@ -39,11 +39,15 @@ public class Direktor implements Calisan { //Calisan interface'ni alan direktor 
     
     @Override
     public void calisanDetaylariniGoster() //cikti icin print
-    {
-        System.out.println(" ");    
-        System.out.println("Name ="+ismeBak());  
-        System.out.println("Salary ="+maasaBak());  
-        System.out.println(" ");  
+    {    
+        System.out.println("İsim = "+ismeBak());  
+        System.out.println("Maaş = "+maasaBak());
+        if(baglantiBak().equals("Root")){
+            System.out.println("Bağlı olduğu kişi = "+"Bağlı olduğu bir kişi yok bu kişi en üst rütbeli birisidir.");
+        }
+        else{
+            System.out.println("Bağlı olduğu kişi = "+baglantiBak());
+        }
     }
    
     @Override
