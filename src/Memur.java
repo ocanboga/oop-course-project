@@ -20,7 +20,6 @@ public class Memur implements Calisan { //Calisan interface'ni alan direktor tip
         this.maas = maas;
         this.pozisyon = pozisyon;
         this.baglanti = baglanti;
-        this.memurSayac +=1;
         Memur tempCalisan = new Memur(isim,maas,pozisyon,baglanti,1);
         arrayeEkle(tempCalisan);
     }
@@ -39,11 +38,11 @@ public class Memur implements Calisan { //Calisan interface'ni alan direktor tip
     @Override
     public void calisanDetaylariniGoster() //cikti icin print
     {
-        System.out.println("**************************");    
+        System.out.println(" ");    
         System.out.println("İsim = "+ismeBak());  
         System.out.println("Maaş = "+maasaBak());
         System.out.println("Pozisyon = "+baglantiBak());
-        System.out.println("**************************");  
+        System.out.println(" ");  
     }
    
     @Override
@@ -79,6 +78,7 @@ public class Memur implements Calisan { //Calisan interface'ni alan direktor tip
     private void arrayeEkle(Calisan calisan){
         this.memurArr = arrayBoyutuArttır(this.memurArr);
         this.memurArr[memurSayac] = calisan;
+        this.memurSayac +=1;
     }
     
     public int memurSayisiniAl(){

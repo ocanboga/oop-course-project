@@ -22,7 +22,6 @@ public class Direktor implements Calisan { //Calisan interface'ni alan direktor 
         this.maas = maas;
         this.pozisyon = pozisyon;
         this.baglanti = baglanti;
-        this.direktorSayac +=1;
         Direktor tempCalisan = new Direktor(isim,maas,pozisyon,baglanti,1);
         arrayeEkle(tempCalisan);
     }
@@ -41,10 +40,10 @@ public class Direktor implements Calisan { //Calisan interface'ni alan direktor 
     @Override
     public void calisanDetaylariniGoster() //cikti icin print
     {
-        System.out.println("**************************");    
+        System.out.println(" ");    
         System.out.println("Name ="+ismeBak());  
         System.out.println("Salary ="+maasaBak());  
-        System.out.println("**************************");  
+        System.out.println(" ");  
     }
    
     @Override
@@ -79,6 +78,7 @@ public class Direktor implements Calisan { //Calisan interface'ni alan direktor 
     private void arrayeEkle(Calisan calisan){
         this.direktorArr = arrayBoyutuArttır(this.direktorArr);
         this.direktorArr[direktorSayac] = calisan;
+        this.direktorSayac +=1;
     }
     
     public int direktorSayisiniAl(){

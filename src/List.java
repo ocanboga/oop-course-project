@@ -5,7 +5,7 @@
 
 /**
  *
- * @author 90545
+ * @author 05190000072_05190000764
  */
 public interface List<E> //iteratora sahip olan liste arayüzü oluşturduk
 {
