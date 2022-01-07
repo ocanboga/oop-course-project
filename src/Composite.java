@@ -35,22 +35,8 @@ public class Composite implements Calisan {
                     toplamMaliyet += calisan.maasaBak();
                     System.out.println("");
                     calisan.calisanDetaylariniGoster();
+                    toplamMaliyet += hepsininAltindakileriBul(calisan);
                     
-                    for(int i = 0; i<birlesikArray.length;i++){
-                        if(calisan.ismeBak().contains(birlesikArray[i].baglantiBak())){
-                            toplamMaliyet += birlesikArray[i].maasaBak();
-                            System.out.println("");
-                            birlesikArray[i].calisanDetaylariniGoster();  
-                            for(int j = 0; j<birlesikArray.length;j++){
-                                if(birlesikArray[i].ismeBak().contains(birlesikArray[j].baglantiBak())){
-                                   toplamMaliyet += birlesikArray[j].maasaBak();
-                                   System.out.println("");
-                                   birlesikArray[j].calisanDetaylariniGoster();  
-                                }
-                            
-                            }                                                        
-                        }
-                    }
                     System.out.println("");
                     System.out.println("**********************");
                     System.out.println("EKİBİN TOPLAM MALİYETİ = "+toplamMaliyet);
@@ -64,6 +50,44 @@ public class Composite implements Calisan {
         }  
     }
     
+    
+    private Calisan[] arrayBirlestir(int memurSayisi, int direktorSayisi, Calisan[] memurArrayi, Calisan[] direktorArrayi){
+        Calisan[] birlesikArray = new Calisan[memurSayisi + direktorSayisi];  //iki arrayin toplamı büyüklükte yeni bir array oluşturduk
+        System.arraycopy(memurArrayi, 0, birlesikArray, 0, memurSayisi);  
+        System.arraycopy(direktorArrayi, 0, birlesikArray, memurSayisi, direktorSayisi);  
+        return birlesikArray;
+    }
+    
+    private int hepsininAltindakileriBul(Calisan calisan){
+        int toplamMaliyet = 0;
+        for(int i = 0; i<birlesikArray.length;i++){
+            if(calisan.ismeBak().contains(birlesikArray[i].baglantiBak())){
+                toplamMaliyet += birlesikArray[i].maasaBak();
+                System.out.println("");
+                birlesikArray[i].calisanDetaylariniGoster();  
+                toplamMaliyet+=altindakileriBul(i);
+                            
+               }                                                        
+            }
+        return toplamMaliyet;
+    }
+    
+    private int altindakileriBul(int index){
+        int toplamMaliyet = 0;
+        for(int j = 0; j<birlesikArray.length;j++){
+            if(birlesikArray[index].ismeBak().contains(birlesikArray[j].baglantiBak())){
+                toplamMaliyet += birlesikArray[j].maasaBak();
+                System.out.println("");
+                birlesikArray[j].calisanDetaylariniGoster();
+                toplamMaliyet+=altindakileriBul(j);
+        }
+        
+    }
+        return toplamMaliyet;
+    }
+    
+    
+    //İnterface yapısında hata almamak için gerekli exceptionlar alttadır.
     @Override
     public int maasaBak() {
         throw new UnsupportedOperationException("Bu sınıfla bu fonksiyon kullanılamaz.");     }
@@ -78,13 +102,6 @@ public class Composite implements Calisan {
     @Override
     public String baglantiBak() {
         throw new UnsupportedOperationException("Bu sınıfla bu fonksiyon kullanılamaz.");     }
-    
-    private Calisan[] arrayBirlestir(int memurSayisi, int direktorSayisi, Calisan[] memurArrayi, Calisan[] direktorArrayi){
-        Calisan[] birlesikArray = new Calisan[memurSayisi + direktorSayisi];  //iki arrayin toplamı büyüklükte yeni bir array oluşturduk
-        System.arraycopy(memurArrayi, 0, birlesikArray, 0, memurSayisi);  
-        System.arraycopy(direktorArrayi, 0, birlesikArray, memurSayisi, direktorSayisi);  
-        return birlesikArray;
-    }
 
     
 }
