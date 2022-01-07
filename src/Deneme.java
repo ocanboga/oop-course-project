@@ -10,6 +10,7 @@
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
@@ -21,10 +22,10 @@ public class Deneme {
      */
     
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         int satirSayisi = 0;
         //Calisan[] calisanlar = new Calisan[];
-        try(BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream("girdi.txt"),StandardCharsets.UTF_8))){
+        BufferedReader br = new TXTReader().readFile();
         String satir;
             while((satir=br.readLine())!=null){
             String[] bol=satir.split(",");
@@ -47,10 +48,8 @@ public class Deneme {
                   
         }
         
-    }
-        catch(Exception e){
-            System.out.println("Bilinmeyen hata konsolu kontrol edin.");
-        }
+    
+        
         System.out.println("Verilen dosya/database başarı ile okundu.");
         Composite compositeTip = new Composite(); //composite tipimizi oluşturduk artık atadığımı şeyleri bu üst tipten
         //çekebilir ve değerlerine bakabiliriz.
@@ -81,7 +80,7 @@ public class Deneme {
         compositeTip.aranacakCalisanAyarla(calisanAdi);
         compositeTip.calisanDetaylariniGoster();
         
-        
-        
+    
     }
-}
+}  
+
