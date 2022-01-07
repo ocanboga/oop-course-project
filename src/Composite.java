@@ -8,16 +8,21 @@
  * @author 05190000072_05190000764
  */
 public class Composite implements Calisan {
-    private Memur tempMemur = new Memur();
-    private Direktor tempDirektor = new Direktor();
+    private Memur tempMemur = new Memur(); //memur ve 
+    private Direktor tempDirektor = new Direktor(); // direktörden verileri çekebilmek için boş objeler oluşturup statik arrayleri çektik
     private Calisan[] birlesikArray = arrayBirlestir(tempMemur.memurSayisiniAl(),tempDirektor.direktorSayisiniAl()
-            ,tempMemur.memurlariAl(),tempDirektor.direktorleriAl());
-    private List<Calisan> calisanListesi = new CalisanList(birlesikArray);
+            ,tempMemur.memurlariAl(),tempDirektor.direktorleriAl()); //direktör ve memurdan gelen arrayleri kendi metodumuz ile birleştirdik
+    private List<Calisan> calisanListesi = new CalisanList(birlesikArray); //kendi oluşturduğumuz liste tipiyle (kendi iterotorumuzu içeren) -->
+    // --> işlem yapacağımız için arraylerimizi listeye atadık ve arraylerle işimizi bitirdik
     private String aranacakCalisan;
 
     
-    public Composite(String aranacakCalisan){
+    public Composite(String aranacakCalisan){ //input ile aramak istersek arayacağımız çalışanımız burada
         this.aranacakCalisan = aranacakCalisan;
+    }
+    
+    public Composite(){
+        
     }
     
     @Override
@@ -41,15 +46,26 @@ public class Composite implements Calisan {
                     System.out.println("**********************");
                     System.out.println("EKİBİN TOPLAM MALİYETİ = "+toplamMaliyet);
                     System.out.println("**********************");
+                    System.out.println("");
                 }
                 else if(calisan.pozisyonBak().equals("M")){
+                    toplamMaliyet+= calisan.maasaBak();
                     calisan.calisanDetaylariniGoster();
+                    
+                    System.out.println("");
+                    System.out.println("**********************");
+                    System.out.println("KİŞİNİN TOPLAM MALİYETİ = "+toplamMaliyet);
+                    System.out.println("**********************");
+                    System.out.println("");
                 }
             }
             calisan = iterator.next();
         }  
     }
     
+    public void aranacakCalisanAyarla(String aranacakCalisan){
+        this.aranacakCalisan = aranacakCalisan;
+    }
     
     private Calisan[] arrayBirlestir(int memurSayisi, int direktorSayisi, Calisan[] memurArrayi, Calisan[] direktorArrayi){
         Calisan[] birlesikArray = new Calisan[memurSayisi + direktorSayisi];  //iki arrayin toplamı büyüklükte yeni bir array oluşturduk

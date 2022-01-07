@@ -15,6 +15,10 @@ public class Memur implements Calisan { //Calisan interface'ni alan direktor tip
     public static Calisan[] memurArr = new Calisan[0];
     private static int memurSayac = 0;
     
+    //Çıktıları renkendirmek istedik. Bunlar için kodlar:
+    private static final String ANSI_BLUE = "\u001B[34m";
+    private static final String ANSI_RESET = "\u001B[0m";
+    
     public Memur(String isim, int maas, String pozisyon,String baglanti){ //constructor
         this.adSoyad = isim;
         this.maas = maas;
@@ -38,9 +42,10 @@ public class Memur implements Calisan { //Calisan interface'ni alan direktor tip
     @Override
     public void calisanDetaylariniGoster() //cikti icin print
     {
-        System.out.println("İsim = "+ismeBak());  
-        System.out.println("Maaş = "+maasaBak());
-        System.out.println("Bağlı olduğu kişi = "+baglantiBak());
+        System.out.println("İsim = "+ismeBak()+ANSI_RESET);  
+        System.out.println("Maaş = "+maasaBak()+ANSI_RESET);
+        System.out.println("Pozisyon = "+pozisyonBak()+ANSI_RESET);
+        System.out.println("Bağlı olduğu kişi = "+baglantiBak()+ANSI_RESET);
     }
    
     @Override

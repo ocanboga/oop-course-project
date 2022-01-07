@@ -17,6 +17,10 @@ public class Direktor implements Calisan { //Calisan interface'ni alan direktor 
     public static Calisan[] direktorArr = new Calisan[0];
     private static int direktorSayac = 0;
     
+    //Çıktıları renkendirmek istedik. Bunlar için kodlar:
+    private static final String ANSI_BLUE = "\u001B[34m";
+    private static final String ANSI_RESET = "\u001B[0m";
+    
     public Direktor(String isim, int maas, String pozisyon, String baglanti){ //constructor
         this.adSoyad = isim;
         this.maas = maas;
@@ -40,13 +44,14 @@ public class Direktor implements Calisan { //Calisan interface'ni alan direktor 
     @Override
     public void calisanDetaylariniGoster() //cikti icin print
     {    
-        System.out.println("İsim = "+ismeBak());  
-        System.out.println("Maaş = "+maasaBak());
+        System.out.println(ANSI_BLUE+"İsim = "+ismeBak()+ANSI_RESET);  
+        System.out.println(ANSI_BLUE+"Maaş = "+maasaBak()+ANSI_RESET);
+        System.out.println(ANSI_BLUE+"Pozisyon = "+pozisyonBak()+ANSI_RESET);
         if(baglantiBak().equals("Root")){
-            System.out.println("Bağlı olduğu kişi = "+"Bağlı olduğu bir kişi yok bu kişi en üst rütbeli birisidir.");
+            System.out.println(ANSI_BLUE+"Bağlı olduğu kişi = "+"Bağlı olduğu bir kişi yok bu kişi en üst rütbeli birisidir."+ANSI_RESET);
         }
         else{
-            System.out.println("Bağlı olduğu kişi = "+baglantiBak());
+            System.out.println(ANSI_BLUE+"Bağlı olduğu kişi = "+baglantiBak()+ANSI_RESET);
         }
     }
    
