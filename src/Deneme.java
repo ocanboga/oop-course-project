@@ -48,16 +48,14 @@ public class Deneme {
                   
         }
         
-    
-        
+            
         System.out.println("Verilen dosya/database başarı ile okundu.");
         Composite compositeTip = new Composite(); //composite tipimizi oluşturduk artık atadığımı şeyleri bu üst tipten
         //çekebilir ve değerlerine bakabiliriz.
-        Scanner scannerObj = new Scanner(System.in);  // Girdi almak için scanner
         //Buradan sonrası projede verilen isimlerin yazdırılması ve bir takım string, açıklama ve düzenleme işlemleri.
         System.out.println("Enter tuşuna bastığınızda öncelikle projede istenilen kişilerin bilgileri yazdırılacaktır.");
         System.out.println("Ardından kendiniz de bir isim girerek verilere bakabilirsiniz.");
-        String gecisTusu = scannerObj.nextLine(); // beklemek için boş input
+        kullanicidanGirdiAl();
         //PROJEDE İSTENEN ÇIKTILAR
         System.out.println("MUSTAFA TURKSEVER'İN BİLGİLERİ:");
         compositeTip.aranacakCalisanAyarla("Mustafa Turksever");
@@ -75,12 +73,16 @@ public class Deneme {
         System.out.println("Verilecek tabloda MAVİ: Direktor, SİYAH: Memur'ları ifade etmektedir.");
         System.out.println("Lütfen geçerli bir kullanıcı adını eksiksiz bir şekilde girin.(Tablonun üstündeki bilgilendirmeyi okuyarak renklerin ne ifade ettiğini öğrenebilirsiniz.)");
        
-        String calisanAdi = scannerObj.nextLine();
+        String calisanAdi = kullanicidanGirdiAl();
         System.out.println("Girdiğiniz isme göre dosya/database tarandı bilgiler şu şekildedir:");
         compositeTip.aranacakCalisanAyarla(calisanAdi);
         compositeTip.calisanDetaylariniGoster();
-        
-    
+          
+    }    
+    public static String kullanicidanGirdiAl(){ //Kullanıcıdan girdi alıyoruz
+            Scanner scannerObj = new Scanner(System.in);  // Girdi almak için scanner
+             return scannerObj.nextLine(); // beklemek için boş input
     }
+    
 }  
 
