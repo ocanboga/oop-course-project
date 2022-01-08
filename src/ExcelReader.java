@@ -10,6 +10,12 @@ import java.io.BufferedReader;
  *
  * @author 05190000072_05190000764
  */
+
+/*
+Excel tipi olan ".xls" tipi okunmak isterse registerı kullanarak bu dosya okunduğunda veya yazıldığında
+ne yapılacığını bu sınıf belirler. Başka tiplerde kullanmak için aynı sınıf yapısı kullanılabilir.
+Dosya okunması için oluşturduğumuz FileReader interfacini kullanıyoruz
+*/
 public class ExcelReader implements FileReader {
     static {
         Registry.register( "xls", new ExcelReader() );

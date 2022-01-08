@@ -7,7 +7,7 @@
  *
  * @author 05190000072_05190000764
  */
-public interface Iterator<E> 
+public interface Iterator<E> //Kendi iteratorımız için gerekli olan interface
 {
     void reset();   // ilk varlığı sıfırla
  

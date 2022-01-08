@@ -7,7 +7,8 @@
  *
  * @author 05190000072_05190000764
  */
-public interface Calisan {
+public interface Calisan { //Bu sınıfımız Composite patternimizin asıl sınıfı olarak görev alıyor
+                            //burada tüm "leaf", bağların birleşeceği yeri ve gerekli metodları oluşturduk.
     public void calisanDetaylariniGoster();
     public int maasaBak();
     public String ismeBak();

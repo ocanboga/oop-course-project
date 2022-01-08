@@ -7,7 +7,8 @@
  *
  * @author 05190000072_05190000764
  */
-public class CalisanIterator implements Iterator<Calisan> {
+public class CalisanIterator implements Iterator<Calisan> { //Kendi "List" tipimizde gerekli verilerin kontrolünü
+                                                            //sağlayabilmek için kendi iteratorımızı oluşturduk.
      
     private Calisan[] calisanlar; //döndüreceğimiz arrayi ve pozisyon değerini oluşturduk
     private int pozisyon;

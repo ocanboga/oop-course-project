@@ -10,7 +10,11 @@ import java.io.BufferedReader;
  *
  * @author 05190000072_05190000764
  */
-
+/*
+Database tipi olan ".xml" tipi okunmak isterse registerı kullanarak bu dosya okunduğunda veya yazıldığında
+ne yapılacığını bu sınıf belirler. Başka tiplerde kullanmak için aynı sınıf yapısı kullanılabilir.
+Dosya okunması için oluşturduğumuz FileReader interfacini kullanıyoruz
+*/
  public class XMLReader implements FileReader {
     static {
         Registry.register( "xml", new XMLReader() );

@@ -24,8 +24,8 @@ public class Deneme {
     
     public static void main(String[] args) throws IOException {
         int satirSayisi = 0;
-        //Calisan[] calisanlar = new Calisan[];
-        BufferedReader br = new TXTReader().readFile();
+        BufferedReader br = new TXTReader().readFile(); //Burada dosya okuma işlemi yapılıyor biz bu projede TXT formatında dosya açtık ancak -->
+        //<-- daha sonra başka türde dosyalar (örnek olarak XML ve Excel ekledik) veya databaseler açılabilir. (Detaylar için sınıfın kendisine bakın.
         String satir;
             while((satir=br.readLine())!=null){
             String[] bol=satir.split(",");
@@ -33,13 +33,13 @@ public class Deneme {
             //her satır için işlem yaparken de satırdaki elementleri virgüllerindne ayırıp bir arraya atıyoruz
             //bu durumda bizim standart yapımız şu şekilde gözükecektir
             //ARRAY INDEX -> 0 - D,M | 1 - AD SOYAD | 2 - MAAS | 3 - BAGLI OLDUGU KISI
-            if(bol[0].equals("D")){
+            if(bol[0].equals("D")){ //dosyayı okurken her D girdisine sahip olan için bir direktor oluştur
                 Direktor yeniMemur = new Direktor(bol[1],Integer.parseInt(bol[2]),bol[0],bol[3]); //String isim, int maas, String pozisyon,String baglanti
             }
-            else if(bol[0].equals("M")){
+            else if(bol[0].equals("M")){ //dosyayı okurken her M girdisine sahip olan için bir Memur oluştur
                 Memur yeniDirektor = new Memur(bol[1],Integer.parseInt(bol[2]),bol[0],bol[3]);                
             }
-            else{
+            else{ //Dosya açma işlemi başta hatalıysa burada da kullanıcıyı bilgilendirdik.
                 System.out.println("Hata dosya işlenemedi...");
                 System.out.println("Dosyanın doğru konumda olduğundan emin olun!");
                 System.out.println("Dosya'nın içeriğinin doğru şekilde yazıldığından emin olun!");
@@ -57,8 +57,8 @@ public class Deneme {
         //Buradan sonrası projede verilen isimlerin yazdırılması ve bir takım string, açıklama ve düzenleme işlemleri.
         System.out.println("Enter tuşuna bastığınızda öncelikle projede istenilen kişilerin bilgileri yazdırılacaktır.");
         System.out.println("Ardından kendiniz de bir isim girerek verilere bakabilirsiniz.");
-        String gecisTusu = scannerObj.nextLine();
-        
+        String gecisTusu = scannerObj.nextLine(); // beklemek için boş input
+        //PROJEDE İSTENEN ÇIKTILAR
         System.out.println("MUSTAFA TURKSEVER'İN BİLGİLERİ:");
         compositeTip.aranacakCalisanAyarla("Mustafa Turksever");
         compositeTip.calisanDetaylariniGoster();

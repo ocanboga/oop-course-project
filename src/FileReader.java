@@ -10,7 +10,8 @@ import java.io.BufferedReader;
  *
  * @author 05190000072_05190000764
  */
-public interface FileReader {
+public interface FileReader { //BufferedReader ile dosya okuyacağımız için interface'miz bunu register ile kullanacağız
+                               //Bu şekilde Strategy Pattern'i kullanıp istediğimiz tipte dosyaları okuyabiliriz.
 
   BufferedReader readFile();
    void writeFile();

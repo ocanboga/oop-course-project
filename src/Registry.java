@@ -11,6 +11,9 @@ import java.util.Map;
  *
  * @author 90545
  */
+/*
+Register yapımız dosyanın uzantısıyla filereadırımızı kullanıp gerekli uzantıyı yerine koyuyor.
+*/
 public class Registry {
     static Map<String,FileReader> reg = new HashMap<String,FileReader>();
 

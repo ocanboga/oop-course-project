@@ -16,9 +16,13 @@ import java.util.logging.Logger;
  *
  * @author 05190000072_05190000764
  */
+/*
+Yazı dosyası tipi olan ".txt" tipi okunmak isterse registerı kullanarak bu dosya okunduğunda veya yazıldığında
+ne yapılacığını bu sınıf belirler. Başka tiplerde kullanmak için aynı sınıf yapısı kullanılabilir.
+*/
  public class TXTReader implements FileReader {
     static {
-        Registry.register( "xml", new XMLReader() );
+        Registry.register( "txt", new TXTReader() );
     }
 
     @Override

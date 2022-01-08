@@ -7,7 +7,9 @@
  *
  * @author 05190000072_05190000764
  */
-public class CalisanList implements List<Calisan>
+public class CalisanList implements List<Calisan> //Kendi iteratorımız ile dönebileceğimiz bir liste türü oluşturduk
+                                                //bu liste türü Calisan tipinde bir array alıp bunları listeye attıktan
+                                                //sonra üzerinde iterator ile işlem yapılmasını sağlıyor.
 {
     private Calisan[] calisanlar; //calisanlar arrayi oluşturduk
      
