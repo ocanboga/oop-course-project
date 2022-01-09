@@ -1,8 +1,7 @@
 # Nesneye Dayalı Programlamanın Temel Yapıları, Tasarım Desenleri ve JUnit Kullanımı
 1. Proje Hazırlığı  
    Projede bizden bir probleme tasarım desenleri yardımıyla çözüm bulunması ve bunun ardından da Netbeans ortamı üzerinde Java programlama dili ile kodlanması isteniyor. Problemimizi incelediğimizde görüyoruz ki birden fazla bilgiler barındıran (maaş, isim, pozisyon, yönetici bilgisi gibi) kişilerin hiyerarşik olarak tutulması ve bunların istenildiğinde topluca veya teker teker yazdırılması gerekiyor (maaşları, maaşların toplamı ve bilgileriyle beraber). Bunun için de öncelikle uygun bir tasarım deseni seçmemiz gerekiyor bunun için de araştırmalarımıza göre en uygun tasarım desenini genel şeması aşağıdaki şekilde gözüktüğü gibi olan “Composite Pattern” olarak belirledik.
- 
-Composite Design UML Örneği   
+   
    Bu oluşturduğumuz hiyerarşik yapının da ArrayList kullanılmadan kendi oluşturduğumuz Iterator ile dolaşılması gerekiyor. Bunun için de projede de verildiği gibi “Iterator Pattern” kullandık.   
  
    Bu veriler okunurken de belirli bir düzende okunacak. Bize verilen örnekte biz bir metin dosyasından (.txt uzantılı bir dosyadan) okuma yapıyoruz bu dosyadan okumanın yanı sıra bizden farklı dosya tiplerinden ve/veya databaselerden de okuma yapılabilmesini istiyor bunun içinde kullanılabilecek en uygun tasarım desenini de “Strategy Pattern” olarak belirledik.   
